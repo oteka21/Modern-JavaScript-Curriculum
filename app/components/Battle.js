@@ -1,19 +1,15 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var Link = require('react-router-dom').Link;
-var PlayerPreview = require('./PlayerPreview');
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import PlayerPreview from './PlayerPreview'
 
-class PlayerInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+class PlayerInput extends Component {
+  
+  state = {
+    username: ''
   }
-  handleChange(event) {
+
+  handleChange = (event) => {
     var value = event.target.value;
 
     this.setState(function () {
@@ -22,7 +18,7 @@ class PlayerInput extends React.Component {
       }
     });
   }
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     this.props.onSubmit(
@@ -152,4 +148,4 @@ class Battle extends React.Component {
   }
 }
 
-module.exports = Battle;
+export default Battle;
